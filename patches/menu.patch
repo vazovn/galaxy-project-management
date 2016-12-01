@@ -1,0 +1,40 @@
+diff --git a/client/galaxy/scripts/layout/menu.js b/client/galaxy/scripts/layout/menu.js
+index f82b571..b80847a 100644
+--- a/client/galaxy/scripts/layout/menu.js
++++ b/client/galaxy/scripts/layout/menu.js
+@@ -108,10 +108,34 @@ var Collection = Backbone.Collection.extend({
+             id              : 'admin',
+             title           : 'Admin',
+             url             : 'admin',
+-            tooltip         : 'Administer this Galaxy',
++            tooltip         : 'Administer this Galaxy Instance',
+             cls             : 'admin-only'
+         });
+ 
++
++        //
++        // Project Application Tab
++        //
++        this.add({
++            id              : 'project_application',
++            title           : 'Apply for a project',
++            url             : 'project_application',
++            tooltip         : 'Project Application'
++        });
++        
++        
++        //
++        // Project Admin.
++        //
++        Galaxy.user.get( 'is_project_admin' ) && this.add({
++            id              : 'project_admin',
++            title           : 'ProjecjAdmin',
++            url             : 'project_admin',
++            tooltip         : 'Project Administration Section'
++        });
++
++
++
+         //
+         // Help tab.
+         //
