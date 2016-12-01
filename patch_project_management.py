@@ -94,19 +94,19 @@ if not os.path.isdir(GALAXY_ROOT + "lib/usit/python/"):
     
     # copy API files here
     os.chdir("./files_to_copy/API/")
-    for c in api :
+    for a in api :
         if runtype == "real" :
-            copyfile(c,GALAXY_ROOT + "lib/usit/python/"+c)
-        print "API " + c + " copied"
+            copyfile(a,GALAXY_ROOT + "lib/usit/python/"+a)
+        print "API " + a + " copied"
     os.chdir("../..")
     
 else:
     # copy API files here
     os.chdir("./files_to_copy/API/")
-    for c in api :
+    for a in api :
         if runtype == "real" :
-            copyfile(c,GALAXY_ROOT + "lib/usit/python/"+c)
-        print "API " + c + " copied"
+            copyfile(a,GALAXY_ROOT + "lib/usit/python/"+a)
+        print "API " + a + " copied"
     os.chdir("../..")
 
 
@@ -146,6 +146,7 @@ def change_ownership_and_permissions_recursive(path, uid, gid, mode):
             os.chown(file,uid, gid)
             os.chmod(file, mode)
     print "Permissions for all new files changed!"
+
 change_ownership_and_permissions_recursive(GALAXY_ROOT, uid, gid, mode)
 
 
