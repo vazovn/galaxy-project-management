@@ -55,7 +55,9 @@ The script will place all the neccessary files for project management and resour
 	
 	shall contain a parameter with name = "project", e.g.
 	
-	<pre><param label="Project" name="project" type="select" value="" help="Project to assign resource allocation to."></pre>
+	```html
+		<param label="Project" name="project" type="select" value="" help="Project to assign resource allocation to.">
+	```
 
 
 ATTENTION : In order to use the project management feature, GOLD shall be installed and configured for your Galaxy instance!!
