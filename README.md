@@ -53,9 +53,9 @@ The script will place all the neccessary files for project management and resour
 
 	GALAXY_ROOT/config/job_resource_params_conf.xml
 	
-	shall contain a parameter with "name" = "project", e.g.
+	shall contain a parameter with name = "project", e.g.
 	
-	<param label="Project" name="project" type="select" value="" help="Project to assign resource allocation to.">
+	<pre><param label="Project" name="project" type="select" value="" help="Project to assign resource allocation to."></pre>
 
 
 ATTENTION : In order to use the project management feature, GOLD shall be installed and configured for your Galaxy instance!!
