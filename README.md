@@ -16,9 +16,9 @@ The script will place all the neccessary files for project management and resour
 
 1. To enable the changes in the menu (Project Admin Tab):
 	
-    **cd GALAXY_ROOT** 
+    cd GALAXY_ROOT  
 	
-    **make client**
+    make client
 	
 	
 2. Create a file (_only_ if you don't take the file over from a previous version)
