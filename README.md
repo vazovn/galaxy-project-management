@@ -34,7 +34,7 @@ The script will place all the neccessary files for project management and resour
 	
 3. Add a line into galaxy.ini file containing the emails of all Project Administrators (GOLD adminstrators)
 
-    project_admin_users = <EMAIL LIST>
+    project_admin_users = <EMAIL LIST>  
 	
 	
 4. The code displaying the job parameters contains a list of projects accessible to a user. To enable this feature. the file: 
@@ -50,10 +50,8 @@ The script will place all the neccessary files for project management and resour
 
 5. Edit /etc/sudoers : add the following lines  
 
-    Cmnd_Alias GOLD = /opt/gold/bin/*  
-
-    Defaults:galaxy !requiretty  
-
+    Cmnd_Alias GOLD = /opt/gold/bin/*
+    Defaults:galaxy !requiretty
     galaxy _hostname_=(root) NOPASSWD: GOLD  
 
 
