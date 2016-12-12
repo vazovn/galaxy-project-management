@@ -57,21 +57,20 @@ The script will place all the neccessary files for project management and resour
 		<param label="Project" name="project" type="select" value="" help="Project to assign resource allocation to.">
 	```
 
-5. Edit /etc/sudoers : add the following lines
+5. Edit /etc/sudoers : add the following lines  
 
-## Nikolay Gold commands allowed for galaxy                                                                                                                                                                                       
 Cmnd_Alias GOLD = /opt/gold/bin/*  
 
-Defaults:galaxy !requiretty
+Defaults:galaxy !requiretty  
 
-galaxy _hostname_=(root) NOPASSWD: GOLD
+galaxy _hostname_=(root) NOPASSWD: GOLD  
 
 
 6. Edit the file /home/galaxy/galaxy/.venv/bin/activate : add the following lines to the bottom of file
 
-export GALAXY_LIB=/home/galaxy/galaxy/lib
-export PYTHONPATH=$GALAXY_LIB:/home/galaxy/galaxy/lib/usit/python
-echo "PYTHONPATH SET IN .venv/bin/activate " $PYTHONPATH
+export GALAXY_LIB=/home/galaxy/galaxy/lib  
+export PYTHONPATH=$GALAXY_LIB:/home/galaxy/galaxy/lib/usit/python  
+echo "PYTHONPATH SET IN .venv/bin/activate " $PYTHONPATH  
 
 
 
