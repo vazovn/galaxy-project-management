@@ -1,5 +1,5 @@
 diff --git a/lib/galaxy/tools/parameters/basic.py b/lib/galaxy/tools/parameters/basic.py
-index e96d55c..92c3fca 100644
+index e96d55c..ae99a3c 100644
 --- a/lib/galaxy/tools/parameters/basic.py
 +++ b/lib/galaxy/tools/parameters/basic.py
 @@ -779,6 +779,18 @@ class SelectToolParameter( ToolParameter ):
@@ -11,10 +11,10 @@ index e96d55c..92c3fca 100644
 +        ## Dynamically update the projects in the project job parameter dropdown
 +        elif self.__dict__['name'] == 'project':
 +           import Accounting_project_management
-+            self.static_options = Accounting_project_management.project_dropdown_update ( trans.user.email, self.static_options )
-+            for (title, value, selected) in self.static_options:
++           self.static_options = Accounting_project_management.project_dropdown_update ( trans.user.email, self.static_options )
++           for (title, value, selected) in self.static_options:
 +                self.legal_values.add( value )
-+            return self.static_options
++           return self.static_options
 +        
 +        
 +        

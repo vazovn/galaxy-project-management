@@ -33,7 +33,7 @@ The script will place all the neccessary files for project management and resour
 	make client
 	
 	
-2. Create a file 
+2. Create a file (_only_ if you don't take the file over from a previous version)
 
 	project_managers.txt
 	
@@ -41,9 +41,7 @@ The script will place all the neccessary files for project management and resour
 	
 	lib/usit/python/Project_managers.py
 	
-	and intantiates its location path from a variable EXTERNAL_DBS in local_env.sh file
 	
-
 3. Add a line into galaxy.ini file containing the emails of all Project Administrators (GOLD adminstrators)
 
 	project_admin_users = <EMAIL LIST>
@@ -54,10 +52,27 @@ The script will place all the neccessary files for project management and resour
 	GALAXY_ROOT/config/job_resource_params_conf.xml
 	
 	shall contain a parameter with name = "project", e.g.
-	
+
 	```html
 		<param label="Project" name="project" type="select" value="" help="Project to assign resource allocation to.">
 	```
+
+5. Edit /etc/sudoers : add the following lines
+
+## Nikolay Gold commands allowed for galaxy                                                                                                                                                                                       
+Cmnd_Alias GOLD = /opt/gold/bin/*  
+
+Defaults:galaxy !requiretty
+
+galaxy _hostname_=(root) NOPASSWD: GOLD
+
+
+6. Edit the file /home/galaxy/galaxy/.venv/bin/activate : add the following lines to the bottom of file
+
+export GALAXY_LIB=/home/galaxy/galaxy/lib
+export PYTHONPATH=$GALAXY_LIB:/home/galaxy/galaxy/lib/usit/python
+echo "PYTHONPATH SET IN .venv/bin/activate " $PYTHONPATH
+
 
 
 ATTENTION : In order to use the project management feature, GOLD shall be installed and configured for your Galaxy instance!!

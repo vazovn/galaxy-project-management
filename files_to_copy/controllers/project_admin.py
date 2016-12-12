@@ -20,7 +20,6 @@ log = logging.getLogger( __name__ )
 
 
 ## Nikolay's
-import Dumper
 import Accounting_project_management
 import re
 from galaxy import config
