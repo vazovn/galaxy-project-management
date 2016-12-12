@@ -34,12 +34,12 @@ The script will place all the neccessary files for project management and resour
 	
 3. Add a line into galaxy.ini file containing the emails of all Project Administrators (GOLD adminstrators)
 
-	project_admin_users = <EMAIL LIST>
+    project_admin_users = <EMAIL LIST>
 	
 	
 4. The code displaying the job parameters contains a list of projects accessible to a user. To enable this feature. the file: 
 
-	GALAXY_ROOT/config/job_resource_params_conf.xml
+    GALAXY_ROOT/config/job_resource_params_conf.xml
 	
 	shall contain a parameter with name = "project", e.g.  
 
