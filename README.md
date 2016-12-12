@@ -5,7 +5,7 @@
 
 clone the repo to your /tmp directory
 
-    **run ./deploy.sh run-type**
+    run ./deploy.sh run-type
 
 run-type can "dry-run" or "real". Null value defaults to "dry-run". 
 
