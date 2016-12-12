@@ -21,4 +21,6 @@ fi
 sed -i -e "s@EXTERNAL_DBS@\"${EXTERNAL_DBS_LINK_NAME}\"@g" ./files_to_copy/API/Project_managers.py
 sed -i -e "s@/home/galaxy/additional_tools/slurm_utils.sh@${GALAXY_ROOT}/lib/usit/scripts@" ./files_to_copy/API/Accounting_jobs.py
 
+sudo yum install npm.x86_64
+
 sudo -u galaxy -H sh -c "/usr/bin/python ${MYDIR}/patch_project_management.py $1"
