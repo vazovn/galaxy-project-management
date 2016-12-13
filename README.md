@@ -3,7 +3,7 @@
 
 ## PART 1 - patching and copying
 
-clone the repo to your /tmp directory amd run
+clone the repo to your /tmp directory and run
 
     ./deploy.sh run-type
 
@@ -20,7 +20,7 @@ The script will place all the neccessary files for project management and resour
     make client
 	
 	
-#### Create a file (_only_ if you don't take the file over from a previous version)
+#### Create a file (*only* if you don't take the file over from a previous version)
 
     /work/projects/galaxy/external_dbs/project_managers.txt
 	
@@ -32,7 +32,8 @@ which shall contain all the project managers. This file is called by the control
     project_admin_users = <EMAIL LIST>  
 	
 	
-#### *This seems to be fixed in 16.10, please check!!* The code displaying the job parameters contains a list of projects accessible to a user. To enable this feature, the file: 
+#### *This seems to be fixed in 16.10, please check!!* 
+The code displaying the job parameters contains a list of projects accessible to a user. To enable this feature, the file: 
 
     GALAXY_ROOT/config/job_resource_params_conf.xml
 	
@@ -42,15 +43,21 @@ shall contain a parameter with name = "project" and the option "gx_default", e.g
 	            <option value="gx_default">Lifeportal default project</option>
 	    </param>
 
-#### Edit /etc/sudoers : add the following lines  
+#### Edit /etc/sudoers : 
+
+add the following lines  
 
     Cmnd_Alias GOLD = /opt/gold/bin/*
     Defaults:galaxy !requiretty
-    galaxy _hostname_=(root) NOPASSWD: GOLD  
+    galaxy <HOSTNAME>=(root) NOPASSWD: GOLD  
+    
+and edit the *hostname* to match your hostname's name
 
 
 
-#### Edit the file /home/galaxy/galaxy/.venv/bin/activate : add the following lines to the bottom of file
+#### Edit the file /home/galaxy/galaxy/.venv/bin/activate : 
+
+add the following lines to the bottom of file
 
     export GALAXY_LIB=/home/galaxy/galaxy/lib  
     export PYTHONPATH=$GALAXY_LIB:/home/galaxy/galaxy/lib/usit/python  
