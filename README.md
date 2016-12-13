@@ -37,7 +37,7 @@ The script will place all the neccessary files for project management and resour
     project_admin_users = <EMAIL LIST>  
 	
 	
-4. The code displaying the job parameters contains a list of projects accessible to a user. To enable this feature. the file: 
+4. **This seems to be fixed in 16.10, please check**. The code displaying the job parameters contains a list of projects accessible to a user. To enable this feature. the file: 
 
     GALAXY_ROOT/config/job_resource_params_conf.xml
 	
@@ -63,4 +63,4 @@ The script will place all the neccessary files for project management and resour
 
 
 
-ATTENTION : In order to use the project management feature, GOLD shall be installed and configured for your Galaxy instance!!
+ATTENTION : In order to use the project management feature, GOLD shall be running your Galaxy instance!!

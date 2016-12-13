@@ -6,20 +6,13 @@ from pprint import *
 import subprocess
 
 
-if "EXTERNAL_DBS" in os.environ.keys() :
-     EXTERNAL_DBS = os.environ['EXTERNAL_DBS']
-else :
-    print "=== Project_managers.py  : $EXTERNAL_DBS env variable is not instantiated in local_env.sh !! ==="
-
-
 def get_project_managers () :
    """
    Gets all the project managers (PIs who manage projects), but not Administrators approving the applications
    """
    
    project_managers = []
-   
-   f=open(EXTERNAL_DBS+'/project_managers.txt', 'r')
+   f=open('EXTERNAL_DBS'+'/project_managers.txt', 'r')
    for line in f :
         line = line.rstrip()
         line = line.lstrip()
@@ -35,8 +28,7 @@ def search_project_manager ( email ) :
    Checks if smb IS a manager
    """
    
-   #sed_search_command = "sed -n '/^%s$/p' /Users/nikolaiv/galaxy/lib/usit/external_dbs/project_managers.txt" % email
-   sed_search_command = "sed -n '/^%s$/p' " +  EXTERNAL_DBS + "/project_managers.txt" % email
+   sed_search_command = "sed -n '/^%s$/p' EXTERNAL_DBS/project_managers.txt" % email
    p = subprocess.Popen(sed_search_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
    p.wait()
    
@@ -49,8 +41,7 @@ def delete_project_manager (email ) :
    Deletes a project manager (shall be executed if the manager has 0 projects to manage)
    """
    
-   #sed_delete_command = "sed -i '/^%s$/d' /Users/nikolaiv/galaxy/lib/usit/external_dbs/project_managers.txt" % email
-   sed_delete_command = "sed -i '/^%s$/d' " +  EXTERNAL_DBS + "/project_managers.txt" % email
+   sed_delete_command = "sed -i '/^%s$/d' EXTERNAL_DBS/project_managers.txt" % email
    p = subprocess.Popen(sed_delete_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
    p.wait()
 
@@ -65,16 +56,14 @@ def add_project_manager (email ) :
    """
    found_email = search_project_manager( email )
    if not found_email :
-        #add_command = "echo '%s' >> /Users/nikolaiv/galaxy/lib/usit/external_dbs/project_managers.txt " % email
-        add_command = "echo '%s' >> " + EXTERNAL_DBS + "/project_managers.txt " % email
+        add_command = "echo '%s' >> EXTERNAL_DBS/project_managers.txt " % email
         p = subprocess.Popen(add_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         p.wait()
         found_email2 = search_project_manager( email )
         if found_email2 :
               return "Project manager added"
         else :
-              #return "Error adding Project manager into /home/galaxy/lib/usit/external_dbs/project_managers.txt"
-              return "Error adding Project manager into " + EXTERNAL_DBS + "/project_managers.txt"
+              return "Error adding Project manager into project_managers.txt"
    else :
         return "Project manager already exists"
 

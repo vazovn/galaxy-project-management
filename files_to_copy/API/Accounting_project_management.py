@@ -14,8 +14,9 @@ from operator import itemgetter, attrgetter
 
 
 ## ==== ACTIVATE THE DB ENGINE variable GOLDDB defined in startup_settings.sh  =====
-#application_db_engine = create_engine(os.environ['GOLDDB'], encoding='utf-8')
-#metadata = MetaData(application_db_engine)
+GOLDDB=
+application_db_engine = create_engine(GOLDDB, encoding='utf-8')
+metadata = MetaData(application_db_engine)
 
 def associate_users_to_projects ( emails, project) :
     """

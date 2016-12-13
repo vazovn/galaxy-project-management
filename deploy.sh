@@ -18,8 +18,10 @@ fi
 ## Edit the files before deployment
 . settings.sh
 
-sed -i -e "s@EXTERNAL_DBS@\"${EXTERNAL_DBS_LINK_NAME}\"@g" ./files_to_copy/API/Project_managers.py
+sed -i -e "s@EXTERNAL_DBS@${EXTERNAL_DBS_LINK_NAME}@g" ./files_to_copy/API/Project_managers.py
 sed -i -e "s@/home/galaxy/additional_tools/slurm_utils.sh@${GALAXY_ROOT}/lib/usit/scripts@" ./files_to_copy/API/Accounting_jobs.py
+sed -i -e "s%^GOLDDB=.*%GOLDDB=\"${GOLDDB}\"%" ./files_to_copy/API/Accounting_jobs.py
+sed -i -e "s%^GOLDDB=.*%GOLDDB=\"${GOLDDB}\"%" ./files_to_copy/API/Accounting_project_management.py
 
 sudo yum install npm.x86_64
 

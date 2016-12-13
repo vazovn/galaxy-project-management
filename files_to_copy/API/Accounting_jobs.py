@@ -13,9 +13,9 @@ import Project_managers
 from operator import itemgetter, attrgetter
 
 
-## ==== ACTIVATE THE DB ENGINE variable GOLDDB defined in startup_settings.sh  =====
-application_db_engine = create_engine(os.environ['GOLDDB'], encoding='utf-8')
-
+## ==== ACTIVATE THE DB ENGINE variable GOLDDB defined in startup_settings.sh at deploy time  =====
+GOLDDB=
+application_db_engine = create_engine(GOLDDB, encoding='utf-8')
 metadata = MetaData(application_db_engine)
 
 def get_member_of_GOLD_projects ( username )  :
@@ -167,7 +167,7 @@ def job_charge( slurm_job_id, galaxy_job_id ):
                 job_data['processes'] = job_info[2]
             
                 ## process slurm elapsed time
-                slurm_time_secs = "source /home/galaxy/additional_tools/slurm_utils.sh ; slurm_time_secs %s " % job_info[3]
+                slurm_time_secs = "source /home/galaxy/galaxy//lib/usit/scripts ; slurm_time_secs %s " % job_info[3]
                 p = subprocess.Popen(slurm_time_secs, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
                 p.wait()
                 for line in p.stdout.readlines():
